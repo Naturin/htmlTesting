@@ -30,7 +30,7 @@ body, input, textarea, select {
     z-index: 10;
     box-shadow: 0 0 3px 0 black;
 }
-span, .logo, nav a, .buttom-next a {
+span, .logo, nav a, .button-next a {
     text-decoration: none;
     color: white;
 }
@@ -46,7 +46,7 @@ span, .logo, nav a, .buttom-next a {
 span{
     padding: 20px 10px;
 }
-.logo, nav, .buttom-next, article{
+.logo, nav, .button-next, article{
     display: inline-block;
 }
 nav{
@@ -90,7 +90,7 @@ a:hover, .logo:hover span{
 .logo:hover strong {
     background-color: aqua !important;
 }
-#header, p, .buttom-next, .over-pic, label {
+#header, p, .button-next, .over-pic, label {
     text-transform: uppercase;
 }
 p, .over-pic {
@@ -99,13 +99,13 @@ p, .over-pic {
     letter-spacing: 2px;
     display: inline-block;
 }
-.buttom-next{
+.button-next{
     margin-left: 30px;
     border: 2px solid white;
     padding: 8px 100px 8px 30px;
     position: relative;
 }
-.buttom-next::before{
+.button-next::after{
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='https://www.w3.org/1999/xlink' width='36px' height='24px' viewBox='0 0 36 24' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %239bf1ff%3B stroke-width: 2px%3B %7D%3C/style%3E%3Cline x1='0' y1='12' x2='34' y2='12' /%3E%3Cline x1='25' y1='4' x2='34' y2='12.5' /%3E%3Cline x1='25' y1='20' x2='34' y2='11.5' /%3E%3C/svg%3E");
     opacity: 0;
     z-index: 1;
@@ -114,7 +114,7 @@ p, .over-pic {
 .button-next a::before {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='https://www.w3.org/1999/xlink' width='36px' height='24px' viewBox='0 0 36 24' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 2px%3B %7D%3C/style%3E%3Cline x1='0' y1='12' x2='34' y2='12' /%3E%3Cline x1='25' y1='4' x2='34' y2='12.5' /%3E%3Cline x1='25' y1='20' x2='34' y2='11.5' /%3E%3C/svg%3E");
 }
-.buttom-next a:hover::after, .buttom-next a:active::after {
+.button-next a:hover::after, .button-next a:active::after {
     opacity: 1;
 }
 .button-next a::before, .button-next a::after {
@@ -129,7 +129,7 @@ p, .over-pic {
     vertical-align: middle;
     width: 36px;
 }
-.buttom-next:hover{
+.button-next:hover{
     border: 2px solid aqua;
 }
 .content{
@@ -195,7 +195,7 @@ article.contact-email{
     z-index: 1;
 }
 .for-two-pic, .for-two-articles {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     display: flex;
     font: inherit;
 }
@@ -234,7 +234,10 @@ article.contact-email{
 }
 .for_form {
     background-color: #242943;
-    padding: 50px;
+}
+.for_form form
+{
+    margin: 50px;
 }
 input, textarea {
     background-color: #3e4469;
@@ -322,7 +325,6 @@ article.for_form{
 article.contact-email{
     background-color: #242943;
     color: white;
-    height: 250px;
     border: none;
     border-bottom: 1px solid dimgray;
 }
