@@ -86,6 +86,7 @@ h1{
 }
 a:hover, .logo:hover span{
     color: aqua  !important;
+    border-bottom: none !important;
 }
 .logo:hover strong {
     background-color: aqua !important;
@@ -131,27 +132,22 @@ p, .over-pic {
 }
 .button-next:hover{
     border: 2px solid aqua;
+    color: aqua;
 }
 .content{
     height: 65px;
     margin-top: 70px;
     padding-bottom: 50px;
 }
-.tiles #first-pic {
-    background: url(img/pic01.jpg);
+.tiles {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tiles article:nth-child(1), .tiles article:nth-child(4)  {
     width: 40%;
 }
-.tiles #second-pic {
-    background: url(img/pic02.jpg);
+.tiles article:nth-child(3), .tiles article:nth-child(2) {
     width: 60%;
-}
-.tiles #third-pic {
-    background: url(img/pic03.jpg);
-    width: 60%;
-}
-.tiles #fourth-pic {
-    background: url(img/pic04.jpg);
-    width: 40%;
 }
 .text-for-pic {
     background-color: transparent;
@@ -169,7 +165,7 @@ h3 {
 article.for_form{
     width: 60%;
 }
-article.contact-email{
+article.contact{
     width: 40%;
 }
 .tiles article, .tiles-text-and-form article{
@@ -194,21 +190,21 @@ article.contact-email{
     width: 100%;
     z-index: 1;
 }
-.for-two-pic, .for-two-articles {
+.for-two-articles {
     flex-wrap: nowrap;
     display: flex;
     font: inherit;
 }
-#first-pic::after{
+.tiles article:nth-child(1)::after{
     background-color: rgba(48, 164, 200, 0.6);
 }
-#second-pic::after {
+.tiles article:nth-child(2)::after {
     background-color: rgba(134, 68, 209, 0.6);
 }
-#third-pic::after {
+.tiles article:nth-child(3)::after {
     background-color: rgba(209, 41, 22, 0.6);
 }
-#fourth-pic::after {
+.tiles article:nth-child(4)::after {
     background-color: rgba(209, 172, 29, 0.6);
 }
 .tiles article:hover::after {
@@ -262,7 +258,7 @@ input:focus, textarea:focus {
     display: inline-block;
 }
 .for-label-and-input {
-    width: 38%;
+    width: 49%;
     display: inline-block;
     margin-bottom: 20px;
 
@@ -293,7 +289,7 @@ input[type=reset]:hover {
 input[type=submit]:hover{
     background-color: aqua;
 }
-.contact-email > h3{
+.contact > * > h3{
     margin: 0;
     font-size: 16pt;
     border: none;
@@ -304,7 +300,7 @@ input[type=submit]:hover{
     color: #242943;
     display: inline-block;
 }
-.contact-email > .icon {
+.email > .icon {
     content: "\f0e0";
     top: 0;
     left: 0;
@@ -322,9 +318,18 @@ article.for_form{
     border-top: none;
     border-left: none;
 }
-article.contact-email{
+article.contact{
     background-color: #242943;
     color: white;
     border: none;
+}
+.contact a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 0;
+    border-bottom: 1px dotted dimgray;
+}
+.email, .phone, .address {
     border-bottom: 1px solid dimgray;
+    height: 33%;
 }
