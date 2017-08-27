@@ -20,7 +20,6 @@ body, input, textarea, select {
     letter-spacing: 5px;
 }
 #header{
-    /*background-color: rgba(36, 41, 67, 0);*/
     background-color: #242943;
     top: 0;
     cursor: pointer;
@@ -30,7 +29,8 @@ body, input, textarea, select {
     z-index: 10;
     box-shadow: 0 0 3px 0 black;
 }
-span, .logo, nav a, .button-next a {
+
+span, .logo, a {
     text-decoration: none;
     color: white;
 }
@@ -44,7 +44,7 @@ span, .logo, nav a, .button-next a {
     width: 30%;
 }
 span{
-    padding: 20px 10px;
+    padding: 20px 0;
 }
 .logo, nav, .button-next, article{
     display: inline-block;
@@ -85,11 +85,10 @@ h1{
     margin: 0;
 }
 a:hover, .logo:hover span{
-    color: aqua  !important;
-    border-bottom: none !important;
+    color: #9bf1ff  !important;
 }
 .logo:hover strong {
-    background-color: aqua !important;
+    background-color: #9bf1ff !important;
 }
 #header, p, .button-next, .over-pic, label {
     text-transform: uppercase;
@@ -101,19 +100,23 @@ p, .over-pic {
     display: inline-block;
 }
 .button-next{
+    position: relative;
+}
+.button-next a {
     margin-left: 30px;
     border: 2px solid white;
     padding: 8px 100px 8px 30px;
-    position: relative;
 }
-.button-next::after{
+.button-next a::after{
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='https://www.w3.org/1999/xlink' width='36px' height='24px' viewBox='0 0 36 24' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %239bf1ff%3B stroke-width: 2px%3B %7D%3C/style%3E%3Cline x1='0' y1='12' x2='34' y2='12' /%3E%3Cline x1='25' y1='4' x2='34' y2='12.5' /%3E%3Cline x1='25' y1='20' x2='34' y2='11.5' /%3E%3C/svg%3E");
     opacity: 0;
     z-index: 1;
     display: block;
+    right: 35px;
 }
 .button-next a::before {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='https://www.w3.org/1999/xlink' width='36px' height='24px' viewBox='0 0 36 24' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 2px%3B %7D%3C/style%3E%3Cline x1='0' y1='12' x2='34' y2='12' /%3E%3Cline x1='25' y1='4' x2='34' y2='12.5' /%3E%3Cline x1='25' y1='20' x2='34' y2='11.5' /%3E%3C/svg%3E");
+    right: 35px;
 }
 .button-next a:hover::after, .button-next a:active::after {
     opacity: 1;
@@ -130,9 +133,9 @@ p, .over-pic {
     vertical-align: middle;
     width: 36px;
 }
-.button-next:hover{
-    border: 2px solid aqua;
-    color: aqua;
+.button-next a:hover{
+    border: 2px solid #9bf1ff;
+    color: #9bf1ff;
 }
 .content{
     height: 65px;
@@ -143,10 +146,10 @@ p, .over-pic {
     display: flex;
     flex-wrap: wrap;
 }
-.tiles article:nth-child(1), .tiles article:nth-child(4)  {
+.tiles article:nth-child(4n-3), .tiles article:nth-child(4n)  {
     width: 40%;
 }
-.tiles article:nth-child(3), .tiles article:nth-child(2) {
+.tiles article:nth-child(4n-1), .tiles article:nth-child(4n-2) {
     width: 60%;
 }
 .text-for-pic {
@@ -228,6 +231,9 @@ article.contact{
     font-weight: 200;
     padding: 20px 0;
 }
+.tiles-text-and-form, .for-two-articles > article {
+    cursor: inherit !important;
+}
 .for_form {
     background-color: #242943;
 }
@@ -252,7 +258,7 @@ input {
     cursor: pointer;
 }
 input:focus, textarea:focus {
-    border: 1px solid aqua;
+    border: 1px solid #9bf1ff;
 }
 .tiles-text-and-form > article {
     display: inline-block;
@@ -283,53 +289,129 @@ input[type=reset]{
     border: 2px solid white;
 }
 input[type=reset]:hover {
-    color: aqua;
-    border: 2px solid aqua;
+    color: #9bf1ff;
+    border: 2px solid #9bf1ff;
 }
 input[type=submit]:hover{
-    background-color: aqua;
+    background-color: #9bf1ff;
+}
+.contact > * {
+    position: relative;
 }
 .contact > * > h3{
     margin: 0;
     font-size: 16pt;
     border: none;
+    padding: 30px 0 20px 0;
+    position: relative;
 }
 .icon::before{
     background-color: white;
     border-radius: 100%;
     color: #242943;
     display: inline-block;
+    font-family: FontAwesome, Arial, sans-serif;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
 }
-.email > .icon {
-    content: "\f0e0";
-    top: 0;
-    left: 0;
+.icon {
     position: absolute;
-
+    display: block;
+    left: 20px;
+}
+.contact > * > .icon {
+    top: 38px;
+}
+.email > .icon::before {
+    content: "\f0e0";
+}
+.phone > .icon::before {
+    content: "\f095";
+}
+.address > .icon::before {
+    content: "\f015";
+}
+.address {
+    border-bottom: none !important;
 }
 .for-two-articles {
     width: 100%;
     /*background-color: #242943;*/
+    border-bottom: 1px solid dimgray;
 }
 .for-two-articles > article {
     border: 1px solid dimgray;
 }
 article.for_form{
-    border-top: none;
-    border-left: none;
+    border: none;
+    border-right: 1px solid dimgray;
 }
 article.contact{
     background-color: #242943;
     color: white;
     border: none;
 }
-.contact a {
-    text-decoration: none;
-    color: white;
-    padding: 5px 0;
+.contact a, #footer > span > a {
     border-bottom: 1px dotted dimgray;
+}
+.contact > * {
+    padding: 15px 0 0 70px;
+}
+.email a:hover, #footer > span > a:hover {
+    border-bottom: none !important;
 }
 .email, .phone, .address {
     border-bottom: 1px solid dimgray;
-    height: 33%;
+    height: 30%;
+}
+.address > span {
+    letter-spacing: 2px;
+}
+#footer {
+    background-color: #242943;
+    padding: 50px 70px;
+}
+#footer > * > .icon {
+    margin-right: 15px;
+    display: inline-block;
+}
+.for-icons-in-footer {
+    margin-bottom: 20px;
+}
+.for-icons-in-footer, .for-icons-in-footer > .icon {
+    position: relative;
+}
+.icon.twitter::before {
+    content: "\f099";
+}
+.icon.facebook::before {
+    content: "\f09a";
+}
+.icon.instagram::before {
+    content: "\f16d";
+}
+.icon.github::before {
+    content: "\f09b";
+}
+.icon.linkedin::before {
+    content: "\f0e1";
+}
+#footer > * > .icon:hover::before {
+   background-color: #9bf1ff;
+    cursor: pointer;
+}
+#footer > span {
+    font-size: 10pt;
+    color: dimgray;
+    letter-spacing: 1px;
+    padding: 0 5px !important;
+}
+#footer > span > a {
+    color: dimgray;
+}
+#footer > span:nth-child(3), #footer > span:nth-child(4) {
+    border-left: 1px solid dimgray;
 }
